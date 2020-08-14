@@ -5,6 +5,7 @@ import 'database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  static String email1 = '';
 
   //Create user object based on firebase user
   User _userFromFirebaseUser(FirebaseUser user) {
@@ -45,7 +46,6 @@ class AuthService {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
-
       //create a new document for the user with the uid
       await DatabaseService(uid: user.uid)
           .updateUserData('Egg', 5000, 0, 'Dairy');

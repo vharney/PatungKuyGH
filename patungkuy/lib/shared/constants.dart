@@ -10,3 +10,5 @@ const textInputDecoration = InputDecoration(
     borderSide: BorderSide(color: Colors.lightBlue, width: 2.0)
   )
 );
+
+String userEmail = '';

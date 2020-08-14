@@ -78,8 +78,12 @@ class _SignInState extends State<SignIn> {
                 onPressed: () async {
                   // return true only when null is returned by the validators
                   if (_formKey.currentState.validate()) {
-                    setState(() => loading = true);
+                    setState(() {
+                      loading = true;
+                      userEmail = email;  
+                    });
                     dynamic result = await _auth.signInWithEmailAndPassword(email, password);
+
                     if (result == null) {
                       setState(() {
                         error = "SignIn failed, please make sure your email and password are correct!";
