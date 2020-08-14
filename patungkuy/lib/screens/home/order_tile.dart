@@ -13,6 +13,7 @@ class OrderTile extends StatefulWidget {
 class _OrderTileState extends State<OrderTile> {
   @override
   int counter = 0;
+  int counter2 = 0;
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
@@ -26,7 +27,11 @@ class _OrderTileState extends State<OrderTile> {
               title: Text(widget.order.name),
               subtitle: Text('Rp ' + widget.order.price.toString()),
               trailing: RaisedButton.icon(
-                  onPressed: () {},
+                  onPressed: counter2 == 0 ? null : () {
+                    setState(() {
+                      counter2 = 0;
+                    });;
+                  },
                   icon: Icon(Icons.check_box),
                   label: Text(
                     'CONFIRM',
@@ -56,7 +61,7 @@ class _OrderTileState extends State<OrderTile> {
                   onPressed: () {
                     setState(() {
                       counter += 1;
-                      print(counter);
+                      counter2 += 1;
                     });
                   },
                   icon: Icon(Icons.add_circle_outline),
@@ -67,6 +72,7 @@ class _OrderTileState extends State<OrderTile> {
                     setState(() {
                       if (counter > 0) {
                         counter -= 1;
+                        counter2 -= 1;
                       }
                     });
                   },
