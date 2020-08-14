@@ -14,19 +14,27 @@ class _OrderTileState extends State<OrderTile> {
   @override
   int counter = 0;
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
       child: Card(
         child: Column(
           children: [
             ListTile(
-              //onTap: () {},
+              onTap: () {},
               contentPadding:
                   EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               title: Text(widget.order.name),
               subtitle: Text('Rp ' + widget.order.price.toString()),
-              trailing: Icon(Icons.mail_outline),
+              trailing: Card(
+                elevation: 5.0,
+                color: Colors.grey[50],
+                child: Text(
+                  'CONFIRM',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
               leading: CircleAvatar(
                 radius: 100.0,
                 //backgroundImage: AssetImage('assets/${order.image}'),
@@ -58,7 +66,7 @@ class _OrderTileState extends State<OrderTile> {
                     setState(() {
                       if (counter > 0) {
                         counter -= 1;
-                      } 
+                      }
                     });
                   },
                   icon: Icon(Icons.remove_circle_outline),
