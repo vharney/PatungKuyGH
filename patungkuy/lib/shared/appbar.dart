@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:patungkuy/screens/home/add_order.dart';
+import 'package:patungkuy/services/auth.dart';
+import 'package:patungkuy/shared/appbar.dart';
+import 'package:provider/provider.dart';
+import 'package:patungkuy/screens/home/confirmed.dart';
+import 'package:patungkuy/screens/home/orders.dart';
+import 'package:patungkuy/screens/home/mycart.dart';
+import 'package:patungkuy/shared/drawer.dart';
 
 class AppbarCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    void _showSettingsPanel() {
+    void _addOrderPanel() {
       showModalBottomSheet(
           context: context,
           builder: (context) {
             return Container(
-              child: Text('bottom sheet'),
+              child: AddOrder(),
             );
           });
     }
@@ -20,8 +28,8 @@ class AppbarCustom extends StatelessWidget {
       actions: <Widget>[
         FlatButton.icon(
           icon: Icon(Icons.add),
-          label: Text('add order'),
-          onPressed: () => _showSettingsPanel(),
+          label: Text('ADD ORDER'),
+          onPressed: () => _addOrderPanel(),
         )
       ],
       bottom: PreferredSize(
@@ -31,20 +39,40 @@ class AppbarCustom extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 FlatButton.icon(
-                  color: Colors.white,
                   icon: Icon(Icons.person),
                   label: Text('Orders'),
-                  onPressed: () async {},
+                  onPressed: () async {
+                    color:
+                    Colors.white;
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Orders()),
+                    );
+                  },
                 ),
                 FlatButton.icon(
                   icon: Icon(Icons.person),
                   label: Text('My Cart'),
-                  onPressed: () async {},
+                  onPressed: () async {
+                    color:
+                    Colors.white;
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyCart()),
+                    );
+                  },
                 ),
                 FlatButton.icon(
                   icon: Icon(Icons.person),
                   label: Text('Confirmed'),
-                  onPressed: () async {},
+                  onPressed: () async {
+                    color:
+                    Colors.white;
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Confirmed()),
+                    );
+                  },
                 ),
               ])),
     );
