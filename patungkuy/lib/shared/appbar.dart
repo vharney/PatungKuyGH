@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+
+import 'package:patungkuy/main.dart';
+import 'package:patungkuy/screens/home/mycart.dart';
+import 'package:patungkuy/screens/home/orders.dart';
+import 'package:patungkuy/screens/home/confirmed.dart';
 import 'package:patungkuy/screens/home/add_order.dart';
 import 'package:patungkuy/services/auth.dart';
 import 'package:patungkuy/shared/appbar.dart';
 import 'package:provider/provider.dart';
-import 'package:patungkuy/screens/home/confirmed.dart';
-import 'package:patungkuy/screens/home/orders.dart';
-import 'package:patungkuy/screens/home/mycart.dart';
+import 'package:patungkuy/services/database.dart';
+import 'package:patungkuy/models/order.dart';
+import 'package:patungkuy/screens/authenticate/authenticate.dart';
 import 'package:patungkuy/shared/drawer.dart';
+import 'package:patungkuy/shared/appbar.dart';
 
 class AppbarCustom extends StatelessWidget {
   @override
@@ -44,9 +50,9 @@ class AppbarCustom extends StatelessWidget {
                   onPressed: () async {
                     color:
                     Colors.white;
-                    await Navigator.pushReplacementNamed(
+                    await Navigator.push(
                       context,
-                      '/orders',
+                      MaterialPageRoute(builder: (context) => Orders()),
                     );
                   },
                 ),
@@ -56,9 +62,9 @@ class AppbarCustom extends StatelessWidget {
                   onPressed: () async {
                     color:
                     Colors.white;
-                    await Navigator.pushReplacementNamed(
+                    await Navigator.push(
                       context,
-                      '/mycart',
+                      MaterialPageRoute(builder: (context) => MyCart()),
                     );
                   },
                 ),
@@ -68,9 +74,9 @@ class AppbarCustom extends StatelessWidget {
                   onPressed: () async {
                     color:
                     Colors.white;
-                    await Navigator.pushReplacementNamed(
+                    await Navigator.push(
                       context,
-                      '/confirmed',
+                      MaterialPageRoute(builder: (context) => Confirmed()),
                     );
                   },
                 ),
