@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patungkuy/screens/home/confirmed.dart';
 import 'screens/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'models/user.dart';
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => Wrapper(),
+          '/mycart': (context) => MyCart(),
+          '/orders': (context) => Orders(),
+          '/confirmed': (context) => Confirmed(),
         },
       ),
     );

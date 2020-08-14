@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:patungkuy/models/temp_order.dart';
 import 'package:patungkuy/shared/appbar.dart';
+import 'package:patungkuy/shared/drawer.dart';
+import 'package:patungkuy/shared/constants.dart';
 
 class MyCart extends StatefulWidget {
   List<TempOrder> listOfTempOrders;
@@ -14,6 +16,7 @@ class _MyCartState extends State<MyCart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppbarCustom().build(context),
+      drawer: DrawerCustom(email: userEmail),
     );
   }
 }

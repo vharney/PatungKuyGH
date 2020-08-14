@@ -44,9 +44,9 @@ class AppbarCustom extends StatelessWidget {
                   onPressed: () async {
                     color:
                     Colors.white;
-                    await Navigator.push(
+                    await Navigator.pushReplacementNamed(
                       context,
-                      MaterialPageRoute(builder: (context) => Orders()),
+                      '/orders',
                     );
                   },
                 ),
@@ -56,9 +56,9 @@ class AppbarCustom extends StatelessWidget {
                   onPressed: () async {
                     color:
                     Colors.white;
-                    await Navigator.push(
+                    await Navigator.pushReplacementNamed(
                       context,
-                      MaterialPageRoute(builder: (context) => MyCart()),
+                      '/mycart',
                     );
                   },
                 ),
@@ -68,9 +68,9 @@ class AppbarCustom extends StatelessWidget {
                   onPressed: () async {
                     color:
                     Colors.white;
-                    await Navigator.push(
+                    await Navigator.pushReplacementNamed(
                       context,
-                      MaterialPageRoute(builder: (context) => Confirmed()),
+                      '/confirmed',
                     );
                   },
                 ),
