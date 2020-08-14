@@ -3,9 +3,9 @@ import 'package:patungkuy/services/auth.dart';
 import 'package:provider/provider.dart';
 import 'package:patungkuy/services/database.dart';
 import 'order_list.dart';
-import 'package:patungkuy/models/order.dart';
+import 'package:patungkuy/models/brew.dart';
 
-class Orders extends StatelessWidget {
+class Order extends StatelessWidget {
   final AuthService _auth = AuthService();
 
   @override
@@ -20,20 +20,56 @@ class Orders extends StatelessWidget {
           });
     }
 
-    return StreamProvider<List<Order>>.value(
-      value: DatabaseService().orders,
+    return StreamProvider<List<Brew>>.value(
+      value: DatabaseService().brews,
       child: Scaffold(
         backgroundColor: Colors.brown[50],
         appBar: AppBar(
           title: Text('PatungKuy'),
           backgroundColor: Colors.brown[400],
-          elevation: 0.0,
+          leading: Drawer(
+            child: ListView(padding: EdgeInsets.zero, children: <Widget>[
+              DrawerHeader(
+                child: Icon(Icons.menu),
+                decoration: BoxDecoration(
+                  color: Colors.white30,
+                ),
+              ),
+              ListTile(
+                title: Text('Item 1'),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+              ListTile(
+                title: Text('Item 2'),
+                onTap: () {
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+            ]),
+          ),
           actions: <Widget>[
-            FlatButton.icon(
-              icon: Icon(Icons.add),
-              label: Text('add order'),
-              onPressed: () => _showSettingsPanel(),
-            )
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {
+                    final snackBar = SnackBar(content: Text('tap'));
+                    Scaffold.of(context).showSnackBar(snackBar);
+                  },
+                  child: Icon(
+                    Icons.search,
+                    size: 26.0,
+                  ),
+                )),
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Icon(Icons.more_vert),
+                )),
           ],
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(48),
@@ -60,36 +96,6 @@ class Orders extends StatelessWidget {
                   ])),
         ),
         body: OrderList(),
-        drawer: Drawer(
-          child: ListView(padding: EdgeInsets.zero, children: <Widget>[
-            DrawerHeader(
-              child: Icon(Icons.menu),
-              decoration: BoxDecoration(
-                color: Colors.white30,
-              ),
-            ),
-            ListTile(
-              leading: FlatButton.icon(
-                icon: Icon(Icons.person),
-                label: Text('logout'),
-                onPressed: () async {
-                  await _auth.signOut();
-                },
-              ),
-              // Update the state of the app.
-              // ...
-            ),
-            ListTile(
-              leading: FlatButton.icon(
-                icon: Icon(Icons.person),
-                label: Text('Account'),
-                onPressed: () async {
-                  await _auth.signOut();
-                },
-              ),
-            ),
-          ]),
-        ),
       ),
     );
   }
