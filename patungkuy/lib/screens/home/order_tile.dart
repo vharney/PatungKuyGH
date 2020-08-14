@@ -2,26 +2,60 @@ import 'package:flutter/material.dart';
 import 'package:patungkuy/models/order.dart';
 import 'package:patungkuy/models/brew.dart';
 
-class OrderTile extends StatelessWidget {
-  
+class OrderTile extends StatefulWidget {
   final Order order;
-  OrderTile({ this.order });
+  OrderTile({this.order});
 
+  @override
+  _OrderTileState createState() => _OrderTileState();
+}
+
+class _OrderTileState extends State<OrderTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
       child: Card(
-        margin: EdgeInsets.fromLTRB(20.0, 6, 20.0, 0),
-        child: ListTile(
-          leading: CircleAvatar(
-            radius: 25.0,
-            backgroundColor: Colors.brown[order.strength],
-          ),
-          title: Text(order.name),
-          subtitle: Text("Takes ${order.sugars} sugar(s)."),
-        )
-      )
+        child: Column(
+          children: [
+            ListTile(
+              //onTap: () {},
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              title: Text(widget.order.name),
+              subtitle: Text('Rp ' + widget.order.price.toString()),
+              trailing: Icon(Icons.mail_outline),
+              leading: CircleAvatar(
+                radius: 100.0,
+                //backgroundImage: AssetImage('assets/${order.image}'),
+              ),
+            ),
+            Row(
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    widget.order.category,
+                    textAlign: TextAlign.right,
+                  ),
+                ),
+                Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.add_circle_outline),
+                ),
+                Text('Qty'),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.remove_circle_outline),
+                ),
+              ],
+            ),
+          ],
+        ),
+        elevation: 10.0,
+      ),
     );
   }
 }

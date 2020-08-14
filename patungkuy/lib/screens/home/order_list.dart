@@ -14,12 +14,11 @@ class _OrderListState extends State<OrderList> {
     //this is a stream
     //everytime there is a change, a whole set of data (including the changes and non-changes get released as 'brews')
     final orders = Provider.of<List<Order>>(context);
-    
+
     return ListView.builder(
-      itemCount: brews.length,
-      itemBuilder: (context, index) {
-        return OrderTile(order: orders[index]);
-      }
-    );
+        itemCount: orders.length,
+        itemBuilder: (context, index) {
+          return OrderTile(order: orders[index]);
+        });
   }
 }

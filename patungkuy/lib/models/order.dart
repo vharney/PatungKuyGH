@@ -1,10 +1,9 @@
 class Order {
   final String name;
-  final int originalPrice;
+  final int price;
   int quantity;
-  final dynamic category;
+  final String category;
   int patunganPrice;
 
-  Order({ this.name, this.originalPrice, this.quantity, this.category});
-  
+  Order({this.name, this.price, this.quantity, this.category});
 }

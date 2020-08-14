@@ -1,39 +1,37 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:patungkuy/models/brew.dart';
-
+import 'package:patungkuy/models/order.dart';
+import 'package:patungkuy/screens/home/orders.dart';
 
 class DatabaseService {
   final String uid;
-  DatabaseService({ this.uid });
+  DatabaseService({this.uid});
 
-  List<Brew> _brewListFromSnapshot(QuerySnapshot snapshot) {
+  List<Order> _orderListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
-      return Brew(
+      return Order(
         name: doc.data['name'] ?? '',
-        strength: doc.data['strength'] ?? 0,
-        sugars: doc.data['sugars'] ?? '0'
-
+        price: doc.data['price'] ?? 0,
+        quantity: doc.data['quantity'] ?? 0,
+        category: doc.data['category'] ?? '',
       );
     }).toList();
   }
 
   // collection reference
-  final CollectionReference brewCollection = Firestore.instance.collection('brews');
+  final CollectionReference orderCollection =
+      Firestore.instance.collection('orders');
 
-  Future updateUserData(String sugars, String name, int strength) async {
-    return await brewCollection.document(uid).setData(
-      {
-        'sugars': sugars,
-        'name': name,
-        'strength': strength
-      }
-    );
+  Future updateUserData(
+      String name, int price, int quantity, String category) async {
+    return await orderCollection.document(uid).setData({
+      'name': name,
+      'price': price,
+      'quantity': quantity,
+      'category': category
+    });
   }
 
-  Stream<List<Brew>> get brews {
-    return brewCollection.snapshots().map(
-      _brewListFromSnapshot
-    );
+  Stream<List<Order>> get orders {
+    return orderCollection.snapshots().map(_orderListFromSnapshot);
   }
-
 }
