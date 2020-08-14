@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:patungkuy/services/database.dart';
 import 'order_list.dart';
 import 'package:patungkuy/models/order.dart';
+import 'package:patungkuy/screens/authenticate/authenticate.dart';
 
 class Orders extends StatelessWidget {
   final AuthService _auth = AuthService();
@@ -23,10 +24,10 @@ class Orders extends StatelessWidget {
     return StreamProvider<List<Order>>.value(
       value: DatabaseService().orders,
       child: Scaffold(
-        backgroundColor: Colors.brown[50],
+        backgroundColor: Colors.blue[100],
         appBar: AppBar(
           title: Text('PatungKuy'),
-          backgroundColor: Colors.brown[400],
+          backgroundColor: Colors.blue[300],
           elevation: 0.0,
           actions: <Widget>[
             FlatButton.icon(
@@ -38,7 +39,7 @@ class Orders extends StatelessWidget {
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(48),
               child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     FlatButton.icon(
