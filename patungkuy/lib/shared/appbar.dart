@@ -44,10 +44,13 @@ class AppbarCustom extends StatelessWidget {
                   onPressed: () async {
                     color:
                     Colors.white;
-                    await Navigator.pushReplacementNamed(
+                    await Navigator.pushNamed(
                       context,
                       '/orders',
                     );
+                    print('hello');
+                    print('CONTEXT $context');
+                    print('world');
                   },
                 ),
                 FlatButton.icon(
@@ -56,10 +59,13 @@ class AppbarCustom extends StatelessWidget {
                   onPressed: () async {
                     color:
                     Colors.white;
-                    await Navigator.pushReplacementNamed(
+                    await Navigator.pushNamed(
                       context,
                       '/mycart',
                     );
+                    print('hello');
+                    print('CONTEXT $context');
+                    print('world');
                   },
                 ),
                 FlatButton.icon(
@@ -68,10 +74,13 @@ class AppbarCustom extends StatelessWidget {
                   onPressed: () async {
                     color:
                     Colors.white;
-                    await Navigator.pushReplacementNamed(
+                    await Navigator.pushNamed(
                       context,
                       '/confirmed',
                     );
+                    print('hello');
+                    print('CONTEXT $context');
+                    print('world');
                   },
                 ),
               ])),

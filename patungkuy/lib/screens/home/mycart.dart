@@ -3,6 +3,7 @@ import 'package:patungkuy/models/temp_order.dart';
 import 'package:patungkuy/shared/appbar.dart';
 import 'package:patungkuy/shared/drawer.dart';
 import 'package:patungkuy/shared/constants.dart';
+import 'package:patungkuy/services/auth.dart';
 
 class MyCart extends StatefulWidget {
   List<TempOrder> listOfTempOrders;
@@ -16,7 +17,26 @@ class _MyCartState extends State<MyCart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppbarCustom().build(context),
-      drawer: DrawerCustom(email: userEmail),
+      drawer: Drawer(
+      child: ListView(padding: EdgeInsets.zero, children: <Widget>[
+        UserAccountsDrawerHeader(
+          accountName: Text('Juan'),
+          accountEmail: Text(userEmail),
+          currentAccountPicture: CircleAvatar(
+            backgroundImage: AssetImage('assets/avatar.jpg'),
+          ),
+        ),
+        ListTile(
+          title: Text('Log out'),
+          trailing: Icon(Icons.power_settings_new),
+          onTap: () async {
+            await AuthService().signOut();
+          },
+          // Update the state of the app.
+          // ...
+        ),
+      ]),
+    ),//DrawerCustom(email: userEmail),
     );
   }
 }

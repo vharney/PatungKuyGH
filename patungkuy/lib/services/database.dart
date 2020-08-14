@@ -31,6 +31,11 @@ class DatabaseService {
     });
   }
 
+  // bool checker(String item) {
+  //   if (orderCollection.where() != null
+  // }
+
+
   Stream<List<Order>> get orders {
     return orderCollection.snapshots().map(_orderListFromSnapshot);
   }
