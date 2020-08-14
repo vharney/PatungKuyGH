@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:patungkuy/main.dart';
 import 'package:patungkuy/screens/home/mycart.dart';
 import 'package:patungkuy/screens/home/orders.dart';
 import 'package:patungkuy/screens/home/confirmed.dart';
+=======
+import 'package:patungkuy/screens/home/add_order.dart';
+import 'package:patungkuy/services/auth.dart';
+import 'package:patungkuy/shared/appbar.dart';
+import 'package:provider/provider.dart';
+import 'package:patungkuy/services/database.dart';
+import 'package:patungkuy/models/order.dart';
+import 'package:patungkuy/screens/authenticate/authenticate.dart';
+import 'package:patungkuy/shared/drawer.dart';
+import 'package:patungkuy/shared/appbar.dart';
+>>>>>>> 5cbda9d62006e1b708bee7e5b0a12a2a01d0ee14
 
 class AppbarCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    void _showSettingsPanel() {
+    void _addOrderPanel() {
       showModalBottomSheet(
           context: context,
           builder: (context) {
             return Container(
-              child: Text('bottom sheet'),
+              child: AddOrder(),
             );
           });
     }
@@ -24,8 +36,8 @@ class AppbarCustom extends StatelessWidget {
       actions: <Widget>[
         FlatButton.icon(
           icon: Icon(Icons.add),
-          label: Text('add order'),
-          onPressed: () => _showSettingsPanel(),
+          label: Text('ADD ORDER'),
+          onPressed: () => _addOrderPanel(),
         )
       ],
       bottom: PreferredSize(
