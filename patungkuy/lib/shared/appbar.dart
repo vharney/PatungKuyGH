@@ -45,7 +45,7 @@ class AppbarCustom extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 FlatButton.icon(
-                  icon: Icon(Icons.person),
+                  icon: Icon(Icons.attach_money),
                   label: Text('Orders'),
                   onPressed: () async {
                     color:
@@ -57,7 +57,7 @@ class AppbarCustom extends StatelessWidget {
                   },
                 ),
                 FlatButton.icon(
-                  icon: Icon(Icons.person),
+                  icon: Icon(Icons.shopping_cart),
                   label: Text('My Cart'),
                   onPressed: () async {
                     color:
@@ -69,7 +69,7 @@ class AppbarCustom extends StatelessWidget {
                   },
                 ),
                 FlatButton.icon(
-                  icon: Icon(Icons.person),
+                  icon: Icon(Icons.check_circle),
                   label: Text('Confirmed'),
                   onPressed: () async {
                     color:
