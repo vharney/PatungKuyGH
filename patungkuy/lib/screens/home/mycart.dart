@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:patungkuy/models/temp_order.dart';
+import 'package:patungkuy/shared/appbar.dart';
 
 class MyCart extends StatefulWidget {
   List<TempOrder> listOfTempOrders;
-  MyCart({ this.listOfTempOrders });
+  MyCart({this.listOfTempOrders});
   @override
   _MyCartState createState() => _MyCartState();
 }
@@ -11,8 +12,8 @@ class MyCart extends StatefulWidget {
 class _MyCartState extends State<MyCart> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      appBar: AppbarCustom().build(context),
     );
   }
 }

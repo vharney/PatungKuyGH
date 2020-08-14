@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:patungkuy/main.dart';
+import 'package:patungkuy/screens/home/mycart.dart';
+import 'package:patungkuy/screens/home/orders.dart';
+import 'package:patungkuy/screens/home/confirmed.dart';
 
 class AppbarCustom extends StatelessWidget {
   @override
@@ -31,20 +35,40 @@ class AppbarCustom extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 FlatButton.icon(
-                  color: Colors.white,
                   icon: Icon(Icons.person),
                   label: Text('Orders'),
-                  onPressed: () async {},
+                  onPressed: () async {
+                    color:
+                    Colors.white;
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Orders()),
+                    );
+                  },
                 ),
                 FlatButton.icon(
                   icon: Icon(Icons.person),
                   label: Text('My Cart'),
-                  onPressed: () async {},
+                  onPressed: () async {
+                    color:
+                    Colors.white;
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyCart()),
+                    );
+                  },
                 ),
                 FlatButton.icon(
                   icon: Icon(Icons.person),
                   label: Text('Confirmed'),
-                  onPressed: () async {},
+                  onPressed: () async {
+                    color:
+                    Colors.white;
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Confirmed()),
+                    );
+                  },
                 ),
               ])),
     );

@@ -3,6 +3,8 @@ import 'screens/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'models/user.dart';
 import 'services/auth.dart';
+import 'package:patungkuy/screens/home/orders.dart';
+import 'package:patungkuy/screens/home/mycart.dart';
 
 void main() {
   runApp(MyApp());
