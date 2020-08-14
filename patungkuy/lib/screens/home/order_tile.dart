@@ -20,23 +20,24 @@ class _OrderTileState extends State<OrderTile> {
         child: Column(
           children: [
             ListTile(
-              onTap: () {},
+              //onTap: () {},
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                  EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
               title: Text(widget.order.name),
               subtitle: Text('Rp ' + widget.order.price.toString()),
-              trailing: Card(
-                elevation: 5.0,
-                color: Colors.grey[50],
-                child: Text(
-                  'CONFIRM',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+              trailing: RaisedButton.icon(
+                  onPressed: () {},
+                  icon: Icon(Icons.check_box),
+                  label: Text(
+                    'CONFIRM',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ),
+                  splashColor: Colors.green,
+                  color: Colors.blue[100]),
               leading: CircleAvatar(
-                radius: 100.0,
+                radius: 50.0,
                 //backgroundImage: AssetImage('assets/${order.image}'),
               ),
             ),
