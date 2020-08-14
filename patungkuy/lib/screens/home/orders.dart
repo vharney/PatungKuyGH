@@ -64,7 +64,7 @@ class Orders extends StatelessWidget {
         drawer: Drawer(
           child: ListView(padding: EdgeInsets.zero, children: <Widget>[
             UserAccountsDrawerHeader(
-              accountName: Text('Juan'),
+              accountName: Text('Hello,'),
               accountEmail: Text('juanislam@gmail.com'),
               currentAccountPicture: CircleAvatar(),
             ),
