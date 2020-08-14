@@ -18,29 +18,14 @@ class _DrawerCustomState extends State<DrawerCustom> {
             backgroundImage: AssetImage('assets/avatar.jpg'),
           ),
         ),
-        DrawerHeader(
-          child: Icon(Icons.menu),
-          decoration: BoxDecoration(
-            color: Colors.white30,
-          ),
-        ),
         ListTile(
-          leading: FlatButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('logout'),
-            onPressed: () async {
-              await AuthService().signOut();
-            },
-          ),
+          title: Text('Log out'),
+          trailing: Icon(Icons.power_settings_new),
+          onTap: () async {
+            await AuthService().signOut();
+          },
           // Update the state of the app.
           // ...
-        ),
-        ListTile(
-          leading: FlatButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('Account'),
-            onPressed: () async {},
-          ),
         ),
       ]),
     );
