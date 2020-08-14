@@ -5,6 +5,7 @@ import 'package:patungkuy/services/database.dart';
 import 'order_list.dart';
 import 'package:patungkuy/models/order.dart';
 import 'package:patungkuy/screens/authenticate/authenticate.dart';
+import 'package:patungkuy/shared/drawer.dart';
 
 class Orders extends StatelessWidget {
   final AuthService _auth = AuthService();
@@ -61,41 +62,7 @@ class Orders extends StatelessWidget {
                   ])),
         ),
         body: OrderList(),
-        drawer: Drawer(
-          child: ListView(padding: EdgeInsets.zero, children: <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text('Juan'),
-              accountEmail: Text('juanislam@gmail.com'),
-              currentAccountPicture: CircleAvatar(),
-            ),
-            DrawerHeader(
-              child: Icon(Icons.menu),
-              decoration: BoxDecoration(
-                color: Colors.white30,
-              ),
-            ),
-            ListTile(
-              leading: FlatButton.icon(
-                icon: Icon(Icons.person),
-                label: Text('logout'),
-                onPressed: () async {
-                  await _auth.signOut();
-                },
-              ),
-              // Update the state of the app.
-              // ...
-            ),
-            ListTile(
-              leading: FlatButton.icon(
-                icon: Icon(Icons.person),
-                label: Text('Account'),
-                onPressed: () async {
-                  await _auth.signOut();
-                },
-              ),
-            ),
-          ]),
-        ),
+        drawer: DrawerCustom(),
       ),
     );
   }
