@@ -12,7 +12,9 @@ class OrderTile extends StatefulWidget {
 
 class _OrderTileState extends State<OrderTile> {
   @override
+  int counter = 0;
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
       child: Card(
@@ -42,12 +44,23 @@ class _OrderTileState extends State<OrderTile> {
                 ),
                 Spacer(),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      counter += 1;
+                      print(counter);
+                    });
+                  },
                   icon: Icon(Icons.add_circle_outline),
                 ),
-                Text('Qty'),
+                Text('Qty: $counter'),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      if (counter > 0) {
+                        counter -= 1;
+                      } 
+                    });
+                  },
                   icon: Icon(Icons.remove_circle_outline),
                 ),
               ],
