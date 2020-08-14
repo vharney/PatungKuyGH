@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patungkuy/screens/home/add_order.dart';
 import 'package:patungkuy/services/auth.dart';
 import 'package:provider/provider.dart';
 import 'package:patungkuy/services/database.dart';
@@ -12,12 +13,12 @@ class Orders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void _showSettingsPanel() {
+    void _addOrderPanel() {
       showModalBottomSheet(
           context: context,
           builder: (context) {
             return Container(
-              child: Text('bottom sheet'),
+              child: AddOrder(),
             );
           });
     }
@@ -33,8 +34,8 @@ class Orders extends StatelessWidget {
           actions: <Widget>[
             FlatButton.icon(
               icon: Icon(Icons.add),
-              label: Text('add order'),
-              onPressed: () => _showSettingsPanel(),
+              label: Text('ADD ORDER'),
+              onPressed: () => _addOrderPanel(),
             )
           ],
           bottom: PreferredSize(
