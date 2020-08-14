@@ -66,7 +66,9 @@ class Orders extends StatelessWidget {
             UserAccountsDrawerHeader(
               accountName: Text('Hello,'),
               accountEmail: Text('juanislam@gmail.com'),
-              currentAccountPicture: CircleAvatar(),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('assets/avatar.jpg'),
+              ),
             ),
             DrawerHeader(
               child: Icon(Icons.menu),
