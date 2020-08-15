@@ -85,11 +85,7 @@ class _AddOrderState extends State<AddOrder> {
             onPressed: () async {
               String uid = uuid.v4();
               DatabaseService ds = DatabaseService(uid: uuid.v4());
-              print(await ds.itemExist(_selectedItems));
-              if (! await ds.itemExist(_selectedItems)) {
-                await DatabaseService(uid: uuid.v4()).updateUserData(_selectedItems,  20, counter, 'juan');
-              }
-              
+                await DatabaseService(uid: uuid.v4()).updateOrderData(_selectedItems,  20, counter, 'juan');
             },
             color: Colors.blue[300],
             child: Text(

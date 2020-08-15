@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:patungkuy/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:patungkuy/screens/wrapper.dart';
+import 'package:provider/provider.dart';
+import 'package:patungkuy/models/user.dart';
 
 class DrawerCustom extends StatefulWidget {
   final String email;
@@ -12,39 +14,24 @@ class DrawerCustom extends StatefulWidget {
 }
 
 class _DrawerCustomState extends State<DrawerCustom> {
-  // FirebaseAuth fu = FirebaseAuth.instance;
-  //   String email2 = 'hello';
 
-  //   void inputData() async {
-  //     final FirebaseUser user = await fu.currentUser();
-  //     final uid = user.email;
-  //     // here you write the codes to input the data into firestore
-  //     email2 = uid;
-  //   }
-
-  // @override
-  // void initState() {
-  //   inputData();
-  //   super.initState();
-
-  // }
 
   @override
   Widget build(BuildContext context) {
-    //inputData();
-    print("Hello worlds");
+
+    final user = Provider.of<User>(context);
+
     return Drawer(
       child: ListView(padding: EdgeInsets.zero, children: <Widget>[
         UserAccountsDrawerHeader(
           accountName: Text('Juan'),
-          accountEmail: Text(widget.email),
+          accountEmail: Text(user.email),
           currentAccountPicture: CircleAvatar(
             backgroundImage: AssetImage('assets/avatar.jpg'),
           ),
           onDetailsPressed: () {
             print(widget.email);
-            Navigator.pushNamed(context, '/account',
-                arguments: {'email': widget.email});
+            Navigator.pushNamed(context, '/account');
           },
         ),
         ListTile(

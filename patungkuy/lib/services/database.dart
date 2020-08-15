@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:patungkuy/models/order.dart';
 import 'package:patungkuy/screens/home/orders.dart';
+import 'package:patungkuy/models/user.dart';
 
 class DatabaseService {
   final String uid;
@@ -17,12 +18,28 @@ class DatabaseService {
     }).toList();
   }
 
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData(uid: snapshot.data['id'], email: snapshot.data['email'], balance: snapshot.data['balance']);
+  }
+
   // collection reference
   final CollectionReference orderCollection =
       Firestore.instance.collection('orders');
   
+  final CollectionReference userCollection =
+      Firestore.instance.collection('users');
+
 
   Future updateUserData(
+      String name, String email, int balance) async {
+    return await userCollection.document(uid).setData({
+      'name': name,
+      'email': email,
+      'balance': balance,
+    });
+  }
+
+  Future updateOrderData(
       String name, int price, int quantity, String category) async {
     return await orderCollection.document(uid).setData({
       'name': name,
@@ -44,4 +61,9 @@ class DatabaseService {
   Stream<List<Order>> get orders {
     return orderCollection.snapshots().map(_orderListFromSnapshot);
   }
+
+  Stream<UserData> get userData {
+    return userCollection.document(uid).snapshots().map(_userDataFromSnapshot);
+  }
+
 }
