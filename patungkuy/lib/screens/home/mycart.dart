@@ -24,6 +24,8 @@ class _MyCartState extends State<MyCart> {
         });
   }
 
+  var titles = ['chicken', 'sapi', 'plastic', 'juan'];
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[100],

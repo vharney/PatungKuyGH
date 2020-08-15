@@ -23,6 +23,8 @@ class _ConfirmedState extends State<Confirmed> {
         });
   }
 
+  var titles = ['chicken', 'sapi', 'plastic', 'juan'];
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[100],
