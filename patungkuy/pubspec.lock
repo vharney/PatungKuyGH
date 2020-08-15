@@ -258,18 +258,7 @@ packages:
       name: typed_data
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "1.1.6"
-  uuid:
-    dependency: "direct main"
-    description:
-      name: uuid
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.0"
-=======
     version: "1.2.0"
->>>>>>> be148a2dee774c900c00cab13ac730ef7ae6b835
   vector_math:
     dependency: transitive
     description:
