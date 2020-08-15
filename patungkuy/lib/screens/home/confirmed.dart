@@ -12,7 +12,6 @@ class _ConfirmedState extends State<Confirmed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarCustom().build(context),
       drawer: DrawerCustom(email: userEmail),
     );
   }
