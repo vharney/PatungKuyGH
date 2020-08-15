@@ -3,14 +3,18 @@ import 'package:patungkuy/services/auth.dart';
 import 'package:provider/provider.dart';
 import 'package:patungkuy/services/database.dart';
 
-class account extends StatefulWidget {
+class Account extends StatefulWidget {
   @override
-  _accountState createState() => _accountState();
+  _AccountState createState() => _AccountState();
 }
 
-class _accountState extends State<account> {
+class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Account'),
+      ),
+    );
   }
 }
