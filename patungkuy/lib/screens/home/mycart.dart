@@ -13,8 +13,6 @@ class MyCart extends StatefulWidget {
 }
 
 class _MyCartState extends State<MyCart> {
-  List<String> myCart = ['Egg', 'Chicken', 'Plastic'];
-
   @override
   void _addOrderPanel() {
     showModalBottomSheet(
@@ -31,7 +29,7 @@ class _MyCartState extends State<MyCart> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[100],
-      ),
+      drawer: DrawerCustom(email: userEmail),
     );
   }
 }
