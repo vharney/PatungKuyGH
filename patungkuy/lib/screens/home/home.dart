@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:patungkuy/screens/home/add_order.dart';
 import 'package:patungkuy/shared/appbar.dart';
@@ -21,6 +22,7 @@ class _HomeState extends State<Home> {
   var _pages = [Orders(), MyCart(), Confirmed()];
   PageController pageController = PageController(initialPage: 0);
   int selecteditem = 0;
+  var titles = ['Orders', 'My Cart', 'Confirmed'];
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +37,8 @@ class _HomeState extends State<Home> {
     }
 
     return Scaffold(
-      drawer: DrawerCustom(
-        email: userEmail,
-      ),
       appBar: AppBar(
-        title: Text('PatungKuy'),
+        title: Text(titles[selecteditem]),
         backgroundColor: Colors.blue[300],
         elevation: 0.0,
         actions: <Widget>[
@@ -50,6 +49,9 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
+      drawer: DrawerCustom(
+        email: userEmail,
+      ),
       body: PageView(
         controller: pageController,
         children: _pages,
@@ -57,25 +59,31 @@ class _HomeState extends State<Home> {
           selecteditem = value;
         }),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blueGrey,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.blue[300],
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home), title: Text('Orders')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), title: Text('My Cart')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.check), title: Text('Confirmed'))
+      bottomNavigationBar: CurvedNavigationBar(
+        index: selecteditem,
+        height: 70.0,
+        color: Colors.white,
+        backgroundColor: Colors.blue[100],
+        buttonBackgroundColor: Colors.blue[400],
+        items: <Widget>[
+          Icon(
+            Icons.home,
+          ),
+          Icon(
+            Icons.shopping_cart,
+          ),
+          Icon(
+            Icons.check,
+          ),
         ],
-        currentIndex: selecteditem,
+        animationCurve: Curves.easeOutCubic,
         onTap: (value) {
           setState(() {
-            selecteditem = value;
+            if (pageController.hasClients) {
+              selecteditem = value;
+            }
             pageController.animateToPage(selecteditem,
-                duration: Duration(milliseconds: 100),
-                curve: Curves.easeInExpo);
+                duration: Duration(milliseconds: 400), curve: Curves.linear);
           });
         },
       ),
