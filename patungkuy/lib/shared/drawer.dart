@@ -41,6 +41,11 @@ class _DrawerCustomState extends State<DrawerCustom> {
           currentAccountPicture: CircleAvatar(
             backgroundImage: AssetImage('assets/avatar.jpg'),
           ),
+          onDetailsPressed: () {
+            print(widget.email);
+            Navigator.pushNamed(context, '/account',
+                arguments: {'email': widget.email});
+          },
         ),
         ListTile(
           title: Text('Log out'),
