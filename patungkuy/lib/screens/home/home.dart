@@ -67,12 +67,7 @@ class _HomeState extends State<Home> {
           setState(() {
             selecteditem = value;
             pageController.animateToPage(selecteditem,
-<<<<<<< HEAD
                 duration: Duration(milliseconds: 400), curve: Curves.linear);
-=======
-                duration: Duration(milliseconds: 100),
-                curve: Curves.easeInExpo);
->>>>>>> dae2761635ced7a5ae29f3f56a1f7d969a52a191
           });
         },
       ),
