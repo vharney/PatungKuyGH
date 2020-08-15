@@ -42,7 +42,9 @@ class _DrawerCustomState extends State<DrawerCustom> {
             backgroundImage: AssetImage('assets/avatar.jpg'),
           ),
           onDetailsPressed: () {
-            Navigator.pushNamed(context, '/account');
+            print(widget.email);
+            Navigator.pushNamed(context, '/account',
+                arguments: {'email': widget.email});
           },
         ),
         ListTile(
