@@ -13,7 +13,7 @@ class _OrderListState extends State<OrderList> {
   Widget build(BuildContext context) {
     //this is a stream
     //everytime there is a change, a whole set of data (including the changes and non-changes get released as 'brews')
-    final orders = Provider.of<List<Order>>(context);
+    final orders = Provider.of<List<Order>>(context) ?? [];
 
     return ListView.builder(
         itemCount: orders.length,
