@@ -24,10 +24,30 @@ class _MyCartState extends State<MyCart> {
         });
   }
 
+  var titles = ['chicken', 'sapi', 'plastic', 'juan'];
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[100],
-      drawer: DrawerCustom(email: userEmail),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text(titles[0]),
+                Text('10000'),
+                FlatButton.icon(
+                  onPressed: () {},
+                  icon: Icon(Icons.delete),
+                  label: Text('Delete'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

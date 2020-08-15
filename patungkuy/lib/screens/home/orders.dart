@@ -29,7 +29,6 @@ class Orders extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.blue[100],
         body: OrderList(),
-        drawer: DrawerCustom(email: userEmail),
       ),
     );
   }
