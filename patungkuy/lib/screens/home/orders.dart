@@ -27,6 +27,18 @@ class Orders extends StatelessWidget {
     return StreamProvider<List<Order>>.value(
       value: DatabaseService().orders,
       child: Scaffold(
+        appBar: AppBar(
+          title: Text('Orders'),
+          backgroundColor: Colors.blue[300],
+          elevation: 0.0,
+          actions: <Widget>[
+            FlatButton.icon(
+              icon: Icon(Icons.add),
+              label: Text('ADD ORDER'),
+              onPressed: () => _addOrderPanel(),
+            )
+          ],
+        ),
         backgroundColor: Colors.blue[100],
         body: OrderList(),
         drawer: DrawerCustom(email: userEmail),
