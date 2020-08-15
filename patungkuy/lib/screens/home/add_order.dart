@@ -37,7 +37,9 @@ class _AddOrderState extends State<AddOrder> {
           Padding(
             padding: const EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 0),
             child: DropdownButtonFormField(
-              decoration: textInputDecoration,
+              validator: (val) => val == null ? "Please Select an Item" : null,
+              decoration:
+                  textInputDecoration.copyWith(hintText: 'Select an Item'),
               items: items.map((item) {
                 return DropdownMenuItem(
                   value: item,
@@ -78,7 +80,11 @@ class _AddOrderState extends State<AddOrder> {
           ),
           SizedBox(height: 20.0),
           RaisedButton(
-            onPressed: () async {},
+            onPressed: () async {
+              if (_formKey.currentState.validate()) {
+                Navigator.pop(context);
+              }
+            },
             color: Colors.blue[300],
             child: Text(
               'Add',
