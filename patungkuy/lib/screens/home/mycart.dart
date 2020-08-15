@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patungkuy/models/cart_item.dart';
 import 'package:patungkuy/models/temp_order.dart';
 import 'package:patungkuy/shared/appbar.dart';
 import 'package:patungkuy/shared/drawer.dart';
@@ -13,6 +14,12 @@ class MyCart extends StatefulWidget {
 }
 
 class _MyCartState extends State<MyCart> {
+  List<CartItem> titles = [
+    CartItem(item: 'chicken', quantity: 10, price: 100000),
+    CartItem(item: 'cocaine', quantity: 10, price: 1000000),
+    CartItem(item: 'meth', quantity: 10, price: 2000000),
+  ];
+
   @override
   void _addOrderPanel() {
     showModalBottomSheet(
@@ -24,30 +31,21 @@ class _MyCartState extends State<MyCart> {
         });
   }
 
-  var titles = ['chicken', 'sapi', 'plastic', 'juan'];
-
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[100],
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text(titles[0]),
-                Text('10000'),
-                FlatButton.icon(
-                  onPressed: () {},
-                  icon: Icon(Icons.delete),
-                  label: Text('Delete'),
+      body: ListView.builder(
+          itemCount: titles.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 4),
+              child: Card(
+                child: ListTile(
+                  title: Text(titles[index].item),
                 ),
-              ],
-            ),
-          ],
-        ),
-      ),
+              ),
+            );
+          }),
     );
   }
 }

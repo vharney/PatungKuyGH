@@ -36,7 +36,7 @@ class _DrawerCustomState extends State<DrawerCustom> {
     return Drawer(
       child: ListView(padding: EdgeInsets.zero, children: <Widget>[
         UserAccountsDrawerHeader(
-          accountName: Text('Juan'),
+          accountName: Text('Hello,'),
           accountEmail: Text(widget.email),
           currentAccountPicture: CircleAvatar(
             backgroundImage: AssetImage('assets/avatar.jpg'),
