@@ -22,6 +22,7 @@ class _HomeState extends State<Home> {
   var _pages = [Orders(), MyCart(), Confirmed()];
   PageController pageController = PageController(initialPage: 0);
   int selecteditem = 0;
+  var titles = ['Orders', 'My Cart', 'Confirmed'];
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +37,18 @@ class _HomeState extends State<Home> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(titles[selecteditem]),
+        backgroundColor: Colors.blue[300],
+        elevation: 0.0,
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Icon(Icons.add),
+            label: Text('ADD ORDER'),
+            onPressed: () => _addOrderPanel(),
+          )
+        ],
+      ),
       drawer: DrawerCustom(
         email: userEmail,
       ),
@@ -47,6 +60,7 @@ class _HomeState extends State<Home> {
         }),
       ),
       bottomNavigationBar: CurvedNavigationBar(
+        index: selecteditem,
         height: 70.0,
         color: Colors.white,
         backgroundColor: Colors.blue[100],
@@ -65,7 +79,9 @@ class _HomeState extends State<Home> {
         animationCurve: Curves.easeOutCubic,
         onTap: (value) {
           setState(() {
-            selecteditem = value;
+            if (pageController.hasClients) {
+              selecteditem = value;
+            }
             pageController.animateToPage(selecteditem,
                 duration: Duration(milliseconds: 400), curve: Curves.linear);
           });

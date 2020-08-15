@@ -26,18 +26,6 @@ class _MyCartState extends State<MyCart> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('My Cart'),
-        backgroundColor: Colors.blue[300],
-        elevation: 0.0,
-        actions: <Widget>[
-          FlatButton.icon(
-            icon: Icon(Icons.add),
-            label: Text('ADD ORDER'),
-            onPressed: () => _addOrderPanel(),
-          )
-        ],
-      ),
       backgroundColor: Colors.blue[100],
       drawer: DrawerCustom(email: userEmail),
     );
