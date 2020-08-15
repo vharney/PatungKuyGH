@@ -48,9 +48,6 @@ class AppbarCustom extends StatelessWidget {
                       context,
                       '/orders',
                     );
-                    print('hello');
-                    print('CONTEXT $context');
-                    print('world');
                   },
                 ),
                 FlatButton.icon(
@@ -63,9 +60,6 @@ class AppbarCustom extends StatelessWidget {
                       context,
                       '/mycart',
                     );
-                    print('hello');
-                    print('CONTEXT $context');
-                    print('world');
                   },
                 ),
                 FlatButton.icon(
@@ -78,9 +72,6 @@ class AppbarCustom extends StatelessWidget {
                       context,
                       '/confirmed',
                     );
-                    print('hello');
-                    print('CONTEXT $context');
-                    print('world');
                   },
                 ),
               ])),

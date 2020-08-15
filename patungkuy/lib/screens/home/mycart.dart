@@ -17,26 +17,7 @@ class _MyCartState extends State<MyCart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppbarCustom().build(context),
-      drawer: Drawer(
-      child: ListView(padding: EdgeInsets.zero, children: <Widget>[
-        UserAccountsDrawerHeader(
-          accountName: Text('Juan'),
-          accountEmail: Text(userEmail),
-          currentAccountPicture: CircleAvatar(
-            backgroundImage: AssetImage('assets/avatar.jpg'),
-          ),
-        ),
-        ListTile(
-          title: Text('Log out'),
-          trailing: Icon(Icons.power_settings_new),
-          onTap: () async {
-            await AuthService().signOut();
-          },
-          // Update the state of the app.
-          // ...
-        ),
-      ]),
-    ),//DrawerCustom(email: userEmail),
+      drawer: DrawerCustom(email: userEmail,),//DrawerCustom(email: userEmail),
     );
   }
 }

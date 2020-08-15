@@ -20,6 +20,7 @@ class DatabaseService {
   // collection reference
   final CollectionReference orderCollection =
       Firestore.instance.collection('orders');
+  
 
   Future updateUserData(
       String name, int price, int quantity, String category) async {
@@ -31,9 +32,13 @@ class DatabaseService {
     });
   }
 
-  // bool checker(String item) {
-  //   if (orderCollection.where() != null
-  // }
+  Future<bool> itemExist(String item) async {
+    if ( await orderCollection.where('name', isEqualTo: item).snapshots().isEmpty) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
 
   Stream<List<Order>> get orders {
