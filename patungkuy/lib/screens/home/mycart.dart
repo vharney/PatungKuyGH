@@ -16,8 +16,12 @@ class _MyCartState extends State<MyCart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
       appBar: AppbarCustom().build(context),
       drawer: DrawerCustom(email: userEmail,),//DrawerCustom(email: userEmail),
+=======
+      drawer: DrawerCustom(email: userEmail),
+>>>>>>> 40e35214e28ed0176af5a39be7ce14349b9020ac
     );
   }
 }

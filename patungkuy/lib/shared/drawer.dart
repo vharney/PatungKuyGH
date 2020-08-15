@@ -47,10 +47,6 @@ class _DrawerCustomState extends State<DrawerCustom> {
           trailing: Icon(Icons.power_settings_new),
           onTap: () async {
             await AuthService().signOut();
-            Navigator.pushReplacementNamed(
-              context,
-              '/',
-            );
           },
           // Update the state of the app.
           // ...
