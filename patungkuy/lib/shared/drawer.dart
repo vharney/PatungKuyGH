@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:patungkuy/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:patungkuy/screens/wrapper.dart';
 
 class DrawerCustom extends StatefulWidget {
-
   final String email;
   DrawerCustom({this.email});
 
@@ -12,7 +12,6 @@ class DrawerCustom extends StatefulWidget {
 }
 
 class _DrawerCustomState extends State<DrawerCustom> {
-  
   // FirebaseAuth fu = FirebaseAuth.instance;
   //   String email2 = 'hello';
 
@@ -27,12 +26,11 @@ class _DrawerCustomState extends State<DrawerCustom> {
   // void initState() {
   //   inputData();
   //   super.initState();
-    
+
   // }
-  
+
   @override
   Widget build(BuildContext context) {
-
     //inputData();
     print("Hello worlds");
     return Drawer(
@@ -49,6 +47,10 @@ class _DrawerCustomState extends State<DrawerCustom> {
           trailing: Icon(Icons.power_settings_new),
           onTap: () async {
             await AuthService().signOut();
+            Navigator.pushReplacementNamed(
+              context,
+              '/',
+            );
           },
           // Update the state of the app.
           // ...

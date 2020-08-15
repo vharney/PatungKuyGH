@@ -41,10 +41,10 @@ class AppbarCustom extends StatelessWidget {
                 FlatButton.icon(
                   icon: Icon(Icons.person),
                   label: Text('Orders'),
-                  onPressed: () async {
+                  onPressed: () {
                     color:
                     Colors.white;
-                    await Navigator.pushReplacementNamed(
+                    Navigator.pushReplacementNamed(
                       context,
                       '/orders',
                     );
@@ -53,10 +53,10 @@ class AppbarCustom extends StatelessWidget {
                 FlatButton.icon(
                   icon: Icon(Icons.person),
                   label: Text('My Cart'),
-                  onPressed: () async {
+                  onPressed: () {
                     color:
                     Colors.white;
-                    await Navigator.pushReplacementNamed(
+                    Navigator.pushReplacementNamed(
                       context,
                       '/mycart',
                     );
@@ -65,10 +65,10 @@ class AppbarCustom extends StatelessWidget {
                 FlatButton.icon(
                   icon: Icon(Icons.person),
                   label: Text('Confirmed'),
-                  onPressed: () async {
+                  onPressed: () {
                     color:
                     Colors.white;
-                    await Navigator.pushReplacementNamed(
+                    Navigator.pushReplacementNamed(
                       context,
                       '/confirmed',
                     );
