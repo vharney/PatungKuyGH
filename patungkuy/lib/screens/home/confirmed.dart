@@ -10,6 +10,8 @@ class Confirmed extends StatefulWidget {
 }
 
 class _ConfirmedState extends State<Confirmed> {
+  List<String> myCart = ['Egg', 'Chicken', 'Plastic'];
+
   @override
   void _addOrderPanel() {
     showModalBottomSheet(
@@ -25,6 +27,70 @@ class _ConfirmedState extends State<Confirmed> {
     return Scaffold(
       backgroundColor: Colors.blue[100],
       drawer: DrawerCustom(email: userEmail),
+      body: Column(
+        children: <Widget>[
+          SizedBox(height: 20.0),
+          Text('YOUR RECEIPT'),
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(70.0, 0.0, 70.0, 0),
+              child: Card(
+                child: ListView.builder(
+                  itemCount: myCart.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child:
+                          Text((index + 1).toString() + '.  ' + myCart[index]),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+          Expanded(flex: 2, child: Text('THE TOTAL')),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: RaisedButton.icon(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: Text('Are You Sure?'),
+                    content: Text(
+                        'If you press "yes", all orders will be moved back to your cart.'),
+                    actions: <Widget>[
+                      FlatButton(
+                        child: Text('Yes'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      FlatButton(
+                        child: Text('No'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  ),
+                  barrierDismissible: false,
+                );
+              },
+              icon: Icon(Icons.cancel),
+              label: Text(
+                'CANCEL ALL',
+                style: TextStyle(
+                  letterSpacing: 1.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              color: Colors.red,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

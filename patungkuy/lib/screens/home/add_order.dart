@@ -50,34 +50,34 @@ class _AddOrderState extends State<AddOrder> {
             ),
           ),
           SizedBox(height: 20.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.add_circle_outline),
-                onPressed: () {
-                  setState(() {
-                    ++counter;
-                  });
-                },
-              ),
-              Card(
-                  child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Qty: ' + counter.toString()),
-              )),
-              IconButton(
-                icon: Icon(Icons.remove_circle_outline),
-                onPressed: () {
-                  setState(() {
-                    if (counter > 0) {
-                      --counter;
-                    }
-                  });
-                },
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: <Widget>[
+          //     IconButton(
+          //       icon: Icon(Icons.add_circle_outline),
+          //       onPressed: () {
+          //         setState(() {
+          //           ++counter;
+          //         });
+          //       },
+          //     ),
+          //     Card(
+          //         child: Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: Text('Qty: ' + counter.toString()),
+          //     )),
+          //     IconButton(
+          //       icon: Icon(Icons.remove_circle_outline),
+          //       onPressed: () {
+          //         setState(() {
+          //           if (counter > 0) {
+          //             --counter;
+          //           }
+          //         });
+          //       },
+          //     ),
+          //   ],
+          // ),
           SizedBox(height: 20.0),
           RaisedButton(
             onPressed: () async {
